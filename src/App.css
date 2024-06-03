@@ -9,20 +9,52 @@
   gap: 10px;
   grid-auto-rows: minmax(200px, auto);
 }
+.searchbar{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searchbar>input{
+  display: block;
+  border-radius: 25px;
+  padding: 15px 20px;
+  border: none;
+  background: #eee;
+}
 
 .App-logo {
-  height: 20vmin;
   pointer-events: none;
 }
+.pokemonCard>div:first-child {
+  font-weight: 500;
+  height:116px;
+  padding: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: lightGray;
+  align-items: center;
+}
+.pokemonCard>div:last-child {
+  padding: 5px 9px 5px;
+  height:96px;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
 .pokemonCard {
+  text-transform: capitalize;
   display: inline;
-  padding: 15px;
-  width: 200px;
   margin:15px;
   border-radius: 15px;
   background-color: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   -webkit-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
   -moz-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
@@ -30,7 +62,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .App-logo0 {
     animation: App-logo-spin infinite 20s linear;
   }
 }
