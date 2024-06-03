@@ -104,11 +104,11 @@ function App() {
   }
   const resultItem = ()=>{
     return(
-      <Card index={0} item={setPokemonSearch}/>
+      <Card index={pokemonSearch.id} item={pokemonSearch}/>
     )
   }
   const listItems = pokemonList.map((item,index) =>
-    <Card index={index} item={item}/>
+    <Card key={'card'+index} index={index} item={item}/>
   );
 
   const handleOnScroll = () => {

@@ -35,6 +35,7 @@
 .pokemonCard>div:first-child {
   font-weight: 500;
   height:116px;
+  width:96px;
   padding: 10px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -44,8 +45,8 @@
   background: lightGray;
   align-items: center;
 }
-.pokemonCard>div:last-child {
-  padding: 5px 9px 5px;
+.pokemonCard>table:last-child {
+  padding: 5px 10px 5px;
   height:96px;
   flex-direction: column;
   align-items: center;
