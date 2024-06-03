@@ -8,6 +8,7 @@ function App() {
   const [pokemonSearch, setPokemonSearch] = useState(null)
   const [page, setPage] = useState(1)
   const [search, setSearch] = useState('')
+  const [searching, setSearching] = useState(false)
   const [visible, setVisible] = useState(0)
   const [totalCard, setTotalCard] = useState(0)
   const loadBasicstats = async (index)=>{
@@ -32,14 +33,17 @@ function App() {
 
     if(window.timeout !== null)  clearTimeout(window.timeout);
     setPokemonSearch(null)
+    setSearching(true)
     window.timeout = setTimeout(
       ()=>{
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${search}`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${search.toString().toLowerCase()}`)
         .then(res => {
           console.log(res.data)
+          setSearching(false)
           setPokemonSearch(res.data)
         })
         .catch(function (error) {
+          setSearching(false)
           console.log('Error', error.message);
         })
       }
@@ -185,7 +189,7 @@ function App() {
       <div className="searchbar">
         <input
           type="text"
-          placeholder='Search by Name'
+          placeholder='Search by Name or Number'
           onChange={
             (e)=>{
               setSearch(e.target.value)
@@ -196,10 +200,13 @@ function App() {
 
       {
         search.length>0 ?
-        <div className="App">
+        <div className="App aligncenter">
           {
             pokemonSearch !=null ?
             resultItem()
+            :
+            searching ?
+            'Searching...'
             :
             'Nothing Exist.'
           }
