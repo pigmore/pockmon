@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useRef, useState, useEffect,createRef} from 'react';
 import axios from 'axios';
+import Card from './components/card';
 
 function App() {
   const [pokemonList, setPokemonList] = useState([])
@@ -103,57 +104,11 @@ function App() {
   }
   const resultItem = ()=>{
     return(
-      <li className='pokemonCard'>
-        <div>
-          <img className='App-logo' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonSearch.id}.png`} alt=""/>
-          {pokemonSearch.name}
-        </div>
-        <div>
-
-          {pokemonSearch.stats && pokemonSearch.stats.length > 0 ?
-            <div>
-              {pokemonSearch.stats.map((_item,index) => (
-                <tr key= {index} >
-                  <td>{
-                      _item.stat.name == 'special-attack' ? 'sp.atk':
-                      _item.stat.name == 'special-defense' ? 'sp.def':
-                      _item.stat.name
-                  }&nbsp;</td>
-                  <td>{_item.base_stat}</td>
-                </tr>
-              ))}
-            </div>
-          : null}
-        </div>
-
-      </li>
+      <Card index={0} item={setPokemonSearch}/>
     )
   }
   const listItems = pokemonList.map((item,index) =>
-    <li key={index} className='pokemonCard'>
-      <div>
-        <img className='App-logo' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${index+1}.png`} alt=""/>
-        {item.name}
-      </div>
-      <div>
-
-        {item.stats && item.stats.length > 0 ?
-          <tbody>
-            {item.stats.map(_item => (
-              <tr>
-                <td>{
-                    _item.stat.name == 'special-attack' ? 'sp.atk':
-                    _item.stat.name == 'special-defense' ? 'sp.def':
-                    _item.stat.name
-                }&nbsp;</td>
-                <td>{_item.base_stat}</td>
-              </tr>
-            ))}
-          </tbody>
-        : null}
-      </div>
-
-    </li>
+    <Card index={index} item={item}/>
   );
 
   const handleOnScroll = () => {
