@@ -1,10 +1,28 @@
 .App {
-  text-align: center;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 10px;
+  grid-auto-rows: minmax(200px, auto);
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
+}
+.pokemonCard {
+  display: inline;
+  padding: 15px;
+  width: 200px;
+  margin:15px;
+  border-radius: 15px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
+  -moz-box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
+  box-shadow: 5px 5px 15px -3px rgba(0,0,0,0.55);
 }
 
 @media (prefers-reduced-motion: no-preference) {
