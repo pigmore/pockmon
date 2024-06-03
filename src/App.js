@@ -175,9 +175,16 @@ function App() {
           }
         </div>
         :
+        pokemonList.length > 0 ?
         <div className="App">
           {listItems}
           {visible < totalCard ? 'Searching...':''}
+        </div>
+        :
+        <div className="App aligncenter">
+          {
+            'Searching...'
+          }
         </div>
       }
     </div>
