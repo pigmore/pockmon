@@ -11,6 +11,7 @@ function App() {
   const [search, setSearch] = useState('')
   const [searching, setSearching] = useState(false)
   const [visible, setVisible] = useState(0)
+  const [isScrollloading, setIsScrollloading] = useState(false)
   const [totalCard, setTotalCard] = useState(0)
   const loadBasicstats = async (index)=>{
     axios.get(index)
@@ -55,7 +56,8 @@ function App() {
 
     if (!window.isloading || window.initReady) {
       window.isloading = true
-      axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${visible}&limit=20`)
+      setIsScrollloading(true)
+      axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${visible}&limit=${window.initReady? 20 : 35}`)
       .then(res => {
         let listTemp = res.data.results;
         // listTemp.map(async (item,index)=>{
@@ -68,6 +70,7 @@ function App() {
 
         Promise.all(promiseArray).then((res0) => {
           window.isloading = false
+          setIsScrollloading(false)
           listTemp.map((item,index)=>{
             item.stats = res0[index].data.stats
           })
@@ -101,6 +104,11 @@ function App() {
 
     });
     return stateTemp
+  }
+  const scrollloadingItem = ()=>{
+    return(
+      <li>Searching...</li>
+    )
   }
   const resultItem = ()=>{
     return(
@@ -169,6 +177,7 @@ function App() {
         :
         <div className="App">
           {listItems}
+          {visible < totalCard ? 'Searching...':''}
         </div>
       }
     </div>
