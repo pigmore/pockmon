@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { useRef, useState, useEffect,createRef} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Card from './components/card';
 

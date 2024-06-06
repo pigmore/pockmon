@@ -1,6 +1,9 @@
 # pokemon
 A interview project
 
+# Product Deploy
+http://pigmore.synology.me:8081/
+
 # Task link
 https://docs.google.com/forms/d/e/1FAIpQLScv5nvHsgQb29NtUpLEBX3jMWrNiytob5dbVPazV8OQvuxDGA/viewform?pli=1
 
@@ -14,8 +17,6 @@ https://docs.google.com/forms/d/e/1FAIpQLScv5nvHsgQb29NtUpLEBX3jMWrNiytob5dbVPaz
 * Component
 * 500 Handling
 * Sorting Filtering Search Function
-
-
 
 # Key Api
 https://pokeapi.co/api/v2/pokemon?offset=0&limit=20
